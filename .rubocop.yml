@@ -1,4 +1,4 @@
-Require:
+require:
   - rubocop-rails
   - rubocop-performance
   - rubocop-minitest
@@ -12,6 +12,7 @@ AllCops:
     - db/schema.rb
     - db/migrate/*
     - vendor/**/*
+    - bin/*
 
 Bundler/OrderedGems:
   ConsiderPunctuation: true
@@ -331,47 +332,4 @@ Lint/SymbolConversion:
   Enabled: true
 
 Style/WordArray:
-  Enabled: false
-
-Rails/ActionFilter:
-  Enabled: false
-
-Rails/Delegate:
-  Enabled: false
-
-Rails/DynamicFindBy:
-  Enabled: false
-
-Rails/Output:
-  Include:
-    - app/**/*.rb
-    - config/**/*.rb
-    - db/**/*.rb
-    - lib/**/*.rb
-    - test/**/*.rb
-
-Rails/RequestReferer:
-  EnforcedStyle: referrer
-
-Rails/SkipsModelValidations:
-  Enabled: false
-
-Rails/I18nLocaleTexts:
-  Enabled: false
-
-Performance/RedundantMerge:
-  Enabled: false
-
-Performance/TimesMap:
-  Enabled: false
-
-Rails/FilePath:
-  EnforcedStyle: slashes
-
-Minitest/MultipleAssertions:
-  Max: 6
-
-# Temporary disable this until Ruby 3.3.1 is released
-
-Naming/BlockForwarding:
   Enabled: false
