@@ -1,34 +1,42 @@
 <h1>Spelling Bee Parser</h1>
 
-<h2>How it works:</h2>
-<ol>
-    <li>Click "Share Your Achievement" button</li>
-    <li>Click "Copy link" option</li>
-    <li>Past Share URL in form below</li>
+<div class="row gy-4">
+    <div class="col-md border-end">
+        <h3>How it works</h3>
+        <ol>
+            <li>Click "Share Your Achievement" button</li>
+            <li>Click "Copy link" option</li>
+            <li>Past Share URL in form below</li>
+        </ol>
 
-</ol>
+        <%= form_with method: :get do |form| %>
+            <div class="mb-3">
+                <%= form.label :url, "Spelling Bee Share URL", class: "form-label" %>
+                <%= form.text_field :url, value: @url, class: "form-control" %>
+            </div>
+            <%= form.submit "Generate Chat Share Text", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+    <div class="col-md">
+        <% if @url.present? && @game_date.nil? %>
+            <div class="alert alert-warning" role="alert">
+                <h3>Uh, what?</h3>
+                <p>I don't understand what you submitted. Are you sure you followed the instructions?</p>
+            </div>
+        <% end %>
 
-<%= form_with method: :get do |form| %>
-    <%= form.label :url, "Spelling Bee Share URL:" %>
-    <%= form.text_field :url, value: @url %>
-    <%= form.submit "Generate Chat Share Text" %>
-<% end %>
-
-<hr />
-
-<% if @url.present? && @game_date.nil? %>
-    <p>I don't understand what you submitted. Are you sure you followed the instructions?</p>
-<% end %>
-
-<% if @game_date.present? %>
-<div data-controller="clipboard">
-    <p data-clipboard-target="source">
-    🐝 Spelling Bee: <%= @game_date %><br />
-    🥇 Rank: <%= @game_rank %><br />
-    ⭐ Points: <%= @points %><br />
-    🖕 Beat my score, you coward:<br />
-    <a href="https://www.nytimes.com/puzzles/spelling-bee">https://www.nytimes.com/puzzles/spelling-bee</a>
-    </p>
-    <button data-action="clipboard#copy">Copy to Clipboard</button>
+        <% if @game_date.present? %>
+        <div data-controller="clipboard">
+            <h3>Your Share Results</h3>
+            <p data-clipboard-target="source" class="alert alert-light" role="alert">
+            🐝 Spelling Bee: <%= @game_date %><br />
+            🥇 Rank: <%= @game_rank %><br />
+            ⭐ Points: <%= @points %><br />
+            🖕 Beat my score, you coward:<br />
+            <a href="https://www.nytimes.com/puzzles/spelling-bee">https://www.nytimes.com/puzzles/spelling-bee</a>
+            </p>
+            <button type="button" data-action="clipboard#copy" class="btn btn-success">Copy to Clipboard</button>
+        </div>
+        <% end %>
+    </div>
 </div>
-<% end %>
