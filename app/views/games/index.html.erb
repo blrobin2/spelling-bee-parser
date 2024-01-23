@@ -1,0 +1,34 @@
+<h1>Spelling Bee Parser</h1>
+
+<h2>How it works:</h2>
+<ol>
+    <li>Click "Share Your Achievement" button</li>
+    <li>Click "Copy link" option</li>
+    <li>Past Share URL in form below</li>
+
+</ol>
+
+<%= form_with method: :get do |form| %>
+    <%= form.label :url, "Spelling Bee Share URL:" %>
+    <%= form.text_field :url, value: @url %>
+    <%= form.submit "Generate Chat Share Text" %>
+<% end %>
+
+<hr />
+
+<% if @url.present? && @game_date.nil? %>
+    <p>I don't understand what you submitted. Are you sure you followed the instructions?</p>
+<% end %>
+
+<% if @game_date.present? %>
+<div data-controller="clipboard">
+    <p data-clipboard-target="source">
+    🐝 Spelling Bee: <%= @game_date %><br />
+    🥇 Rank: <%= @game_rank %><br />
+    ⭐ Points: <%= @points %><br />
+    🖕 Beat my score, you coward:<br />
+    <a href="https://www.nytimes.com/puzzles/spelling-bee">https://www.nytimes.com/puzzles/spelling-bee</a>
+    </p>
+    <button data-action="clipboard#copy">Copy to Clipboard</button>
+</div>
+<% end %>
