@@ -52,7 +52,7 @@ group :development, :test do
 
   gem 'brakeman', require: false
   gem 'bundle-audit', require: false
-
+  gem 'bundler-integrity', require: false
 
   gem 'rubocop', require: false
   gem 'rubocop-capybara', require: false

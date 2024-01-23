@@ -91,6 +91,7 @@ GEM
     bundler-audit (0.9.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
+    bundler-integrity (1.0.9)
     capybara (3.39.2)
       addressable
       matrix
@@ -294,6 +295,7 @@ DEPENDENCIES
   bootsnap
   brakeman
   bundle-audit
+  bundler-integrity
   capybara
   debug
   error_highlight (>= 0.4.0)
