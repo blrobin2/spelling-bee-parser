@@ -3,5 +3,5 @@
 set -o errexit
 
 bundle install
-./bin/rails assets:precompile
-./bin/rails assets:clean
+SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:clean
