@@ -26,19 +26,19 @@
         <% end %>
 
         <% if @score.present? %>
-        <div data-controller="clipboard">
-            <h3>Your Share Results</h3>
-            <p data-clipboard-target="source" class="alert alert-light" role="alert">
-            🐝 Spelling Bee: <%= @score.date.to_fs(:long) %><br />
-            🥇 Rank: <%= @score.rank %><br />
-            ⭐ Points: <%= @score.points %><br />
-            🖕 Beat my score, you coward:<br />
-            <a href="https://www.nytimes.com/puzzles/spelling-bee">https://www.nytimes.com/puzzles/spelling-bee</a>
-            </p>
-            <button type="button" data-clipboard-target="button" data-action="clipboard#copy" class="btn btn-success">
-                Copy to Clipboard
-            </button>
-        </div>
+            <div data-controller="clipboard">
+                <h3>Your Share Results</h3>
+                <p data-clipboard-target="source" class="alert alert-light" role="alert">
+                🐝 Spelling Bee: <%= @score.date.to_fs(:long) %><br />
+                🥇 Rank: <%= @score.rank %><br />
+                ⭐ Points: <%= @score.points %><br />
+                🖕 Beat my score, you coward:<br />
+                <a href="https://www.nytimes.com/puzzles/spelling-bee">https://www.nytimes.com/puzzles/spelling-bee</a>
+                </p>
+                <button type="button" data-clipboard-target="button" data-action="clipboard#copy" class="btn btn-success">
+                    Copy to Clipboard
+                </button>
+            </div>
         <% end %>
     </div>
 </div>
