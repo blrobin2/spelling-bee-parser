@@ -3,8 +3,8 @@
 require 'test_helper'
 
 class GamesControllerTest < ActionDispatch::IntegrationTest
-  test 'should get index' do
-    get games_index_url
+  test 'should get root' do
+    get root_url
 
     assert_response :success
   end

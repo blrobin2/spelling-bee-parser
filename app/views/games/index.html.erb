@@ -18,20 +18,20 @@
         <% end %>
     </div>
     <div class="col-md">
-        <% if @url.present? && @game_date.nil? %>
+        <% if @url.present? && @score.nil? %>
             <div class="alert alert-warning" role="alert">
                 <h3>Uh, what?</h3>
                 <p>I don't understand what you submitted. Are you sure you followed the instructions?</p>
             </div>
         <% end %>
 
-        <% if @game_date.present? %>
+        <% if @score.present? %>
         <div data-controller="clipboard">
             <h3>Your Share Results</h3>
             <p data-clipboard-target="source" class="alert alert-light" role="alert">
-            🐝 Spelling Bee: <%= @game_date %><br />
-            🥇 Rank: <%= @game_rank %><br />
-            ⭐ Points: <%= @points %><br />
+            🐝 Spelling Bee: <%= @score.date.to_fs(:long) %><br />
+            🥇 Rank: <%= @score.rank %><br />
+            ⭐ Points: <%= @score.points %><br />
             🖕 Beat my score, you coward:<br />
             <a href="https://www.nytimes.com/puzzles/spelling-bee">https://www.nytimes.com/puzzles/spelling-bee</a>
             </p>
