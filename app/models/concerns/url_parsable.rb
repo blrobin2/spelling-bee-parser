@@ -4,7 +4,7 @@ module UrlParsable
     extend ActiveSupport::Concern
 
     class_methods do
-        def parse_url(url)
+        def query_hash_from(url)
             return nil unless url =~ URI::DEFAULT_PARSER.make_regexp
 
             uri = URI.parse(url)

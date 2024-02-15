@@ -7,14 +7,14 @@ class SpellingBeeScore
     attr_accessor :date, :rank, :points
 
     def self.from_share_url(url)
-        parsed_url = parse_url(url)
+        query_hash = query_hash_from(url)
 
-        return nil unless parsed_url.present?
+        return nil unless query_hash.present?
 
         score = self.new
-        score.date = Date.parse(parsed_url['d'])
-        score.rank = parsed_url['r']
-        score.points = parsed_url['p']
+        score.date = Date.parse(query_hash['d'])
+        score.rank = query_hash['r']
+        score.points = query_hash['p']
         score
     end
 end
