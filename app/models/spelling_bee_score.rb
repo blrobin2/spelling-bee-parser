@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class SpellingBeeScore
-    include ActiveModel::API
     include UrlParsable
 
     attr_accessor :date, :rank, :points
