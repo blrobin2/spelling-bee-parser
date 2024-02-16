@@ -13,8 +13,6 @@ module UrlParsable
             return nil if hash.empty?
 
             hash
-        rescue URI::InvalidURIError
-            nil
         end
     end
 end

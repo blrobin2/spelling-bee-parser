@@ -8,4 +8,10 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
   end
+
+  test 'should get root with query' do
+    get root_url(url: 'test')
+
+    assert_response :success
+  end
 end
